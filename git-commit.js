@@ -2,7 +2,7 @@
  * @Author: strongest-qiang 1309148358@qq.com
  * @Date: 2024-10-16 14:14:19
  * @LastEditors: strongest-qiang 1309148358@qq.com
- * @LastEditTime: 2024-10-16 14:14:29
+ * @LastEditTime: 2024-10-16 14:44:28
  * @FilePath: \Front-end\Vue\Vue3\demo\认证\backage\git-commit.js
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  */
@@ -33,10 +33,11 @@ async function commitToGit() {
     // 推送到远程仓库
     await git.push("origin", "master"); // 假设你的主分支是 `master`
     console.log("更改已推送到远程仓库");
-    const { exec } = require("child_process");
 
+    const { exec } = require("child_process");
+    const scriptPath = path.join(__dirname, "deploy.js");
     // 执行 script.js
-    exec("node deploy.js", (error, stdout, stderr) => {
+    exec(`node ${scriptPath}`, (error, stdout, stderr) => {
       if (error) {
         console.error(`Error executing script: ${error.message}`);
         return;
