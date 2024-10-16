@@ -31,7 +31,7 @@ async function commitToGit() {
     console.log(`已提交更改: ${commitMessage}`);
 
     // 推送到远程仓库
-    await git.push("origin", "main"); // 假设你的主分支是 `main`
+    await git.push("origin", "master"); // 假设你的主分支是 `master`
     console.log("更改已推送到远程仓库");
     const { exec } = require("child_process");
 
